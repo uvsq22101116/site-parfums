@@ -1,0 +1,19 @@
+home:
+    path: /
+    controller: HomeController@index
+
+comments:
+    path: /comments
+    controller: CommentController@list
+
+login:
+    path: /login
+    controller: AuthController@login
+
+register:
+    path: /register
+    controller: AuthController@register
+page:
+    path: /page/{page}
+    controller: PageController@show
+

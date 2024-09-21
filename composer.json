@@ -1,0 +1,23 @@
+{
+    "name": "user/mon-site-vitrine",
+    "description": "Un site vitrine pour les meilleurs dupes de parfums.",
+    "require": {
+        "monolog/monolog": "^3.7"
+    },
+    "license": "yes",
+    "autoload": {
+        "psr-4": {
+            "User\\MonSiteVitrine\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Manel Mokrab",
+            "email": "manelmokrab99@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
+
+
+

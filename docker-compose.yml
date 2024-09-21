@@ -1,0 +1,10 @@
+
+version: '3.8'
+
+services:
+  web:
+    image: mon_projet_vitrine
+    ports:
+      - "8081:80" # Redirige le port 80 du conteneur vers le port 8080 de l'hôte
+    volumes:
+      - ./public:/usr/share/nginx/html # Monte le dossier public pour les fichiers

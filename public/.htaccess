@@ -1,0 +1,23 @@
+# Activer la réécriture des URL
+RewriteEngine On
+
+# Assurer que la requête n'est pas pour un fichier ou un répertoire existant
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rediriger tout le trafic vers index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Forcer l'UTF-8 comme encodage par défaut
+AddDefaultCharset UTF-8
+
+# Protéger le fichier .htaccess et les fichiers sensibles
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.(env|ini|php|config|bak|sql)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dupes de Parfums</title>
+    <link rel="stylesheet" href="public/assets/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background-color: #ff69b4; /* rose */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff69b4;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .cta-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+    <script>
+        let isLoggedIn = false; // État de connexion
+        let username = ""; // Stocke le nom d'utilisateur
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function login() {
+            const userField = document.querySelector('input[name="username"]').value;
+            const passField = document.querySelector('input[name="password"]').value;
+
+            // Simple vérification de l'utilisateur
+            if (userField === "manelmokrab99@gmail.com" && passField === "Manel.mok18") {
+                username = userField;
+                isLoggedIn = true;
+                showSection('account'); // Montre la section compte
+                document.getElementById('welcomeUser').innerText = `Bienvenue, ${username}!`;
+                document.getElementById('accountLink').style.display = 'inline'; // Affiche le lien Mon Compte
+                document.getElementById('logoutLink').style.display = 'inline'; // Affiche le bouton Déconnexion
+                document.getElementById('logoutButton').style.display = 'inline'; // Affiche le bouton Déconnexion dans la section login
+            } else {
+                alert("Nom d'utilisateur ou mot de passe incorrect.");
+            }
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            username = "";
+            document.getElementById('accountLink').style.display = 'none'; // Cache le lien Mon Compte
+            document.getElementById('logoutLink').style.display = 'none'; // Cache le bouton Déconnexion dans l'en-tête
+            document.getElementById('logoutButton').style.display = 'none'; // Cache le bouton Déconnexion dans la section login
+            showSection('home'); // Retourne à la page d'accueil
+        }
+
+        window.onload = function() {
+            showSection('home'); // Affiche la section d'accueil par défaut
+        };
+
+        function submitComment() {
+            const commentField = document.getElementById('comment');
+            const commentsList = document.getElementById('commentsList');
+
+            if (commentField.value.trim() !== "") {
+                const commentDiv = document.createElement('div');
+                commentDiv.textContent = commentField.value;
+                commentsList.appendChild(commentDiv);
+                commentField.value = ""; // Réinitialise le champ de commentaire
+            } else {
+                alert("Veuillez entrer un commentaire.");
+            }
+        }
+
+        function clearComments() {
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = ""; // Supprime tous les commentaires
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue chez Dupes de Parfums</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Accueil</a></li>
+                <li><a href="#" onclick="showSection('about')">À propos</a></li>
+                <li><a href="#" onclick="showSection('products')">Produits</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                <li><a href="#" onclick="showSection('login')">Connexion</a></li>
+                <li><a href="#" onclick="showSection('account')" style="display:none;" id="accountLink">Mon Compte</a></li>
+                <li><a href="#" onclick="showSection('export')">Exporter</a></li>
+                <li><a href="#" onclick="logout()" style="display:none;" id="logoutLink">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Bienvenue chez Dupes de Parfums</h2>
+            <p>Découvrez nos produits de qualité à prix abordables.</p>
+        </section>
+
+        <section id="about" style="display:none;">
+            <h2>À propos de nous</h2>
+            <img src="public/assets/images/photo-1657270081105-d6a924b9ddab.avif" alt="À propos de nous" style="width: 300px; margin-bottom: 20px;">
+            <p>Nous sommes spécialisés dans la création de dupes de parfums de haute qualité à des prix abordables. Découvrez notre gamme de fragrances qui capturent l'essence des plus grands noms.</p>
+        </section>
+
+        <section id="products" style="display:none;">
+            <h2>Nos Dupes de Parfums</h2>
+            <ul>
+                <li>
+                    <h3>Dupe de Chanel No. 5</h3>
+                    <img src="public/assets/images/premium_photo-1676748933022-e1183e997436.avif" alt="Dupe de Chanel No. 5" style="width: 200px;">
+                    <p>Une fragrance intemporelle aux notes florales et boisées.</p>
+                </li>
+                <li>
+                    <h3>Dupe de Dior Sauvage</h3>
+                    <img src="public/assets/images/photo-1657270081105-d6a924b9ddab.avif" alt="Dupe de Dior Sauvage" style="width: 200px;">
+                    <p>Un parfum audacieux avec des notes épicées et fraîches.</p>
+                </li>
+                <li>
+                    <h3>Dupe de Yves Saint Laurent Black Opium</h3>
+                    <img src="public/assets/images/photo-1657270081105-d6a924b9ddab.avif" alt="Dupe de Yves Saint Laurent Black Opium" style="width: 200px;">
+                    <p>Un parfum oriental et gourmand, parfait pour les soirées.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact" style="display:none;">
+            <h2>Contactez-nous</h2>
+            <p>Pour toute question ou commande, n'hésitez pas à nous contacter à l'adresse email suivante :</p>
+            <p><a href="mailto:contact@dupesdeparfums.com">contact@dupesdeparfums.com</a></p>
+        </section>
+
+        <section id="login" style="display:none;">
+            <h2>Connexion</h2>
+            <form onsubmit="event.preventDefault(); login();">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" name="username" required>
+                <br>
+                <label for="password">Mot de passe :</label>
+                <input type="password" name="password" required>
+                <br>
+                <button type="submit">Se connecter</button>
+                <button type="button" id="logoutButton" onclick="logout()" style="display:none;">Déconnexion</button>
+            </form>
+        </section>
+
+        <section id="account" style="display:none;">
+            <h2 id="welcomeUser"></h2>
+            <h3>Commentaires</h3>
+            <form id="commentForm">
+                <textarea id="comment" rows="4" placeholder="Écrivez votre commentaire ici..."></textarea>
+                <br>
+                <button type="button" onclick="submitComment()">Envoyer</button>
+                <button type="button" onclick="clearComments()">Effacer les commentaires</button>
+            </form>
+            <div id="commentsList"></div>
+        </section>
+
+        <section id="export" style="display:none;">
+            <h2>Exporter la solution complète</h2>
+            <p>Cliquez sur le bouton ci-dessous pour exporter l'intégralité des fichiers et de la base de données dans une archive ZIP :</p>
+            <a href="export.php" class="cta-button">Télécharger la solution</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dupes de Parfums. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
+
+``

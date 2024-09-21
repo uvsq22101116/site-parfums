@@ -1,0 +1,16 @@
+{
+    "name": "mon-projet-vitrine",
+    "version": "1.0.0",
+    "description": "Site vitrine pour les meilleurs dupes de parfums",
+    "main": "index.js",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "serve": "vite preview"
+    },
+    "dependencies": {
+        "vite": "^4.0.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    }
+}

@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+}
+
+header {
+  background-color: #ff6f91; /* Rose vif pour l'en-tête */
+  color: white; /* Couleur du texte de l'en-tête */
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none; /* Supprime les puces */
+  padding: 0;
+}
+
+nav ul li {
+  display: inline; /* Affiche les éléments de la liste en ligne */
+  margin: 0 15px; /* Espace entre les liens */
+}
+
+nav a {
+  color: white; /* Couleur des liens */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+nav a:hover {
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #ff6f91; /* Couleur rose pour les titres des sections */
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none; /* Supprime les puces */
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ff6f91; /* Rose vif pour le pied de page */
+  color: white; /* Couleur du texte du pied de page */
+}
